@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   discoverBuyers,
@@ -60,6 +60,20 @@ function Index() {
   const [senderName, setSenderName] = useState("");
   const [senderCompany, setSenderCompany] = useState("");
   const [product, setProduct] = useState("");
+
+  // Hydrate composer defaults from saved profile (src/routes/profile.tsx → localStorage "tradereach:profile").
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("tradereach:profile");
+      if (!raw) return;
+      const p = JSON.parse(raw) as { displayName?: string; companyName?: string; product?: string };
+      if (p.displayName) setSenderName((prev) => prev || p.displayName!);
+      if (p.companyName) setSenderCompany((prev) => prev || p.companyName!);
+      if (p.product) setProduct((prev) => prev || p.product!);
+    } catch {
+      // ignore corrupt storage
+    }
+  }, []);
 
   const search = useMutation({
     mutationFn: (vars: { query: string; countries: string[] }) =>
@@ -121,15 +135,42 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/70">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary font-display text-lg text-primary-foreground">
-              T
-            </span>
-            <span className="font-display text-xl tracking-tight">TradeReach</span>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-primary font-display text-lg text-primary-foreground">
+                T
+              </span>
+              <span className="font-display text-xl tracking-tight">TradeReach</span>
+            </div>
+            <nav className="hidden md:flex items-center gap-4 text-sm font-medium">
+              <Link
+                to="/"
+                className="text-primary font-semibold transition-colors"
+              >
+                Find Buyers
+              </Link>
+              <Link
+                to="/dashboard"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/profile"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Profile
+              </Link>
+            </nav>
           </div>
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Export buyer finder
-          </span>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/dashboard"
+              className="rounded-xl border border-input px-4 py-2 text-sm font-medium hover:bg-secondary transition-colors"
+            >
+              View Dashboard
+            </Link>
+          </div>
         </div>
       </header>
 
