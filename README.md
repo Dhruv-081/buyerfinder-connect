@@ -1,14 +1,20 @@
-# Welcome to your Lovable project
+# Buyer Connect Pro
+
+You have to create a website from which you can FIND MULTIPLE INTERNATIONAL BUYERS with the help of API, and send the MAIL to BUYER'S EMAIL ID.
+
+DON'T UPLOAD ANY CSV FILE
+
+YOUR WEBSITE SHOULD BE ABLE TO FIND THE BUYERS
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e8c8f6e5-6f6c-4c92-8ff6-f5fdc329c29d).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +26,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
