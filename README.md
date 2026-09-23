@@ -1,10 +1,41 @@
-# Buyer Connect Pro
+# 🌐 BuyerFinder Connect
 
-You have to create a website from which you can FIND MULTIPLE INTERNATIONAL BUYERS with the help of API, and send the MAIL to BUYER'S EMAIL ID.
+**BuyerFinder Connect** is a full-stack API-driven web application built to discover international buyers dynamically and initiate direct email outreach—all without relying on static CSV uploads.
 
-DON'T UPLOAD ANY CSV FILE
+---
 
-YOUR WEBSITE SHOULD BE ABLE TO FIND THE BUYERS
+## ✨ Features
+
+- **Dynamic Buyer Search:** Queries external B2B contact APIs in real-time to fetch target buyer profiles, company details, and verified email addresses.
+- **Direct Mail Outreach:** Sends emails directly to fetched buyer addresses via an integrated backend mailing service.
+- **CSV-Free Architecture:** Fully powered by live REST APIs, ensuring fresh, real-time lead data.
+- **Responsive Web UI:** Simple, clean, and intuitive user interface to search leads and trigger email dispatches instantly.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript (Fetch API)
+- **Backend:** Node.js, Express.js
+- **API Integration:** Axios
+- **Email Service:** Nodemailer / SMTP / Email API
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js installed on your machine.
+
+- [Node.js Download](https://nodejs.org/)
+
+### Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Dhruv-081/buyerfinder-connect.git](https://github.com/Dhruv-081/buyerfinder-connect.git)
+   cd buyerfinder-connect
 
 ## Development
 
